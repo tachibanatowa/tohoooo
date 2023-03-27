@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float _Speed ;
 
     // 弾のプレハブ
-    public GameObject bulletPrefab;
+    public GameObject playerbulletPrefab;
 
     ////上下左右の壁座標用
     float _xleft;
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
+                Instantiate(playerbulletPrefab, this.transform.position, Quaternion.identity);
                 time = 0;
             }
         }

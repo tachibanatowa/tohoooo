@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class PlayerBullet : MonoBehaviour
 {
     // 弾の発射スピード
     public float Speed;
@@ -23,6 +23,18 @@ public class Bullet : MonoBehaviour
         // 画面上方に消えたら弾を消去
         if (transform.position.y >= uegenkai)
         {
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        // 敵だったら
+        if (col.gameObject.tag == "Enemy")
+        {
+            // ぶつかった相手を破壊
+            Destroy(col.gameObject);
+
+            // 弾を破壊
             Destroy(gameObject);
         }
     }
