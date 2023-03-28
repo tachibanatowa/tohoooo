@@ -36,6 +36,7 @@ public class PlayerBullet : MonoBehaviour
 
             // 弾を破壊
             Destroy(gameObject);
+
         }
     }
 }

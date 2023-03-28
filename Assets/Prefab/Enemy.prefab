@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemybulletPrefab: {fileID: 1956325865358869611, guid: 8932989442b2750499e44dcf012a2b58, type: 3}
+  Player: {fileID: 1064116511937748117, guid: d818426ec68297045822a342c2c6fec0, type: 3}
   Speed: 0.01
 --- !u!58 &4827301970517187568
 CircleCollider2D:

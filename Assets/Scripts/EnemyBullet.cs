@@ -1,29 +1,56 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    // ’e‚Ì”­ËƒXƒs[ƒh
+    //[SerializeField]
+    //private GameObject objGet1;
+
+    //private Main1GameDirector objGet1;
+    // å¼¾ã®ç™ºå°„ã‚¹ãƒ”ãƒ¼ãƒ‰
     public float Speed;
     float shitagenkai;
+   
+    //private GameObject _object();
 
     // Start is called before the first frame update
     void Start()
     {
+        //objGet1 = new Main1GameDirector();
         shitagenkai = -5.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // ã‚©‚ç‰º‚É’e‚ğˆÚ“®
+        // ä¸Šã‹ã‚‰ä¸‹ã«å¼¾ã‚’ç§»å‹•
         transform.position += new Vector3(0, -Speed, 0) * Time.deltaTime;
 
-        // ‰æ–Ê‰º•û‚ÉÁ‚¦‚½‚ç’e‚ğÁ‹
+        // ç”»é¢ä¸‹æ–¹ã«æ¶ˆãˆãŸã‚‰å¼¾ã‚’æ¶ˆå»
         if (transform.position.y <= shitagenkai)
         {
             Destroy(gameObject);
         }
     }
+
+   
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        // æ•µã ã£ãŸã‚‰
+        if (col.gameObject.tag == "Player")
+        {
+            // ã¶ã¤ã‹ã£ãŸãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’ç ´å£Š
+            Destroy(col.gameObject);
+
+            // æ•µå¼¾ã‚’ç ´å£Š
+            Destroy(gameObject);
+
+            //objGet1.GetComponent<Main1GameDirector>().GameOver();
+            GameObject.Find("Main1GameDirector").GetComponent<Main1GameDirector>().GameOver();
+        }
+    }
+
+
 }

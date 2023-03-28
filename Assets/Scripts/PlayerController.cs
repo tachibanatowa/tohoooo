@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField]
+    private GameObject objGet2;
+
     // プレイヤーの移動速度
     public float _Speed ;
 
@@ -30,6 +33,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
         //壁の数値を設定する
         _yue = 4.75f ;
         _yshita = -4.75f;
@@ -134,4 +139,21 @@ public class PlayerController : MonoBehaviour
 
 
     }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        // 敵だったら
+        if (col.gameObject.tag == "Enemy")
+        {
+            // ぶつかった敵を破壊
+            Destroy(col.gameObject);
+
+            // Playerを破壊
+            Destroy(gameObject);
+
+            //objGet2.GetComponent<Main1GameDirector>().GameOver();
+            GameObject.Find("Main1GameDirector").GetComponent<Main1GameDirector>().GameOver();
+        }
+    }
+
+
 }
