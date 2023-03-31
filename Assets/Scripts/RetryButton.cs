@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class TestScript : MonoBehaviour
+public class RetryButton : MonoBehaviour
 {
 
     [SerializeField]
     Button testButton;
 
     void Start()
-
     {
         
     }
 
-    public void TestButtonOnClick()
+    public void RetryButtonOnClick()
     {
         GetComponent<Button>().interactable = false;
-        Debug.Log("Test Button");
+        SceneManager.LoadScene("MainGameScene1");
     }
 
 }

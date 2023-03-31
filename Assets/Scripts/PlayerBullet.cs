@@ -1,17 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
+    public delegate void MyEventHandler();
+    public　event MyEventHandler EnemyNum;
+
     // 弾の発射スピード
     public float Speed;
     float uegenkai;
+
+    public int _EnemytoubatuNum=0;
 
     // Start is called before the first frame update
     void Start()
     {
         uegenkai = 5.0f;
+        //_EnemyNum = 0;
     }
 
     // Update is called once per frame
@@ -37,6 +44,12 @@ public class PlayerBullet : MonoBehaviour
             // 弾を破壊
             Destroy(gameObject);
 
+            //EnemyNum();
+
+            //_EnemytoubatuNum++;
+
+            //Debug.Log(_EnemytoubatuNum);
         }
     }
+
 }

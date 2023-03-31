@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -155,5 +156,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+}
+
+ class Enemycount: IDisposable
+{
+    private PlayerBullet Instance = new();
+    int _toubatusuu;
+
+    public void event1()
+    {
+        Instance.EnemyNum += EnemyCount;
+    }
+
+    public void EnemyCount()
+    {
+        _toubatusuu++;
+        Debug.Log(_toubatusuu);
+    }
+
+    public void Dispose()
+    {
+        Instance.EnemyNum -= EnemyCount;
+    }
 
 }
